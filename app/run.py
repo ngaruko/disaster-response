@@ -11,9 +11,13 @@ from plotly.graph_objs import Bar
 #from sklearn.externals import joblib
 import joblib
 from sqlalchemy import create_engine
-
+from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
+#for database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///DisasterDatabase.db'
+db = SQLAlchemy(app)
 
 def tokenize(text):
     tokens = word_tokenize(text)
@@ -93,4 +97,4 @@ def go():
     )
 
 if __name__ == '__main__':
-    app.run(threaded=True, port=3001)
+    app.run(debug = True, threaded=True, port=3001)
