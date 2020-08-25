@@ -134,6 +134,7 @@ dmypy.json
 .pyre/
 
 #some files
-data/
-*.csv
-temp-plot.html
+#data/
+#*.csv
+.vscode
+.DS_Store/
