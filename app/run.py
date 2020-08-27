@@ -132,7 +132,7 @@ def plot():
     
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
-   graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
+    graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
     
     # render web page with plotly graphs
     return render_template('master.html', ids=ids, graphJSON=graphJSON)
