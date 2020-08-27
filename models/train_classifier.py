@@ -89,9 +89,12 @@ def build_model(X,y):
     predicted = pipeline.predict(X_test)
     return pipeline, predicted, X_test, y_test
 
-def test_model(ytest, predictions) :
-    print(confusion_matrix(ytest, predictions))
+def test_model() :
+    print(confusion_matrix(ytest, predicted))
     print(classification_report(ytest, predictions)) 
+    #confusion_matrix = confusion_matrix(ytest, predictions)
+    #classification_report = classification_report(ytest, predictions)
+    #return confusion_matrix, classification_report
 
 def evaluate_model(model, X_test, Y_test, category_names):
     pass    
