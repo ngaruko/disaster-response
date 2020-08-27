@@ -1,11 +1,6 @@
 import json
 import plotly
 import pandas as pd
-from io import StringIO
-import seaborn as sns
-import io
-import matplotlib.pyplot as plt
-import base64
 
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
@@ -137,7 +132,7 @@ def plot():
     
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
-    graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
+   graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
     
     # render web page with plotly graphs
     return render_template('master.html', ids=ids, graphJSON=graphJSON)
