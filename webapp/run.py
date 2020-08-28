@@ -39,44 +39,45 @@ model = joblib.load("../models/classifier.pkl")
 @app.route('/index')
 def index():
     
-    # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
-    genre_counts = df.groupby('genre').count()['message']
-    genre_names = list(genre_counts.index)
-    print(genre_names)
-    category_names = df.columns[4:]
-    print(category_names)
-    category_counts =df.groupby(['request','offer','money','storm']).count()['message']
+    # # extract data needed for visuals
+    # # TODO: Below is an example - modify to extract data for your own visuals
+    # genre_counts = df.groupby('genre').count()['message']
+    # genre_names = list(genre_counts.index)
+    # print(genre_names)
+    # category_names = df.columns[4:]
+    # print(category_names)
+    # category_counts =df.groupby(['request','offer','money','storm']).count()['message']
 
-    # create visuals
-    # TODO: Below is an example - modify to create your own visuals
-    graphs = [
-        {
-            'data': [
-                Bar(
-                    x=category_names,
-                    y=category_counts
-                )
-            ],
+    # # create visuals
+    # # TODO: Below is an example - modify to create your own visuals
+    # graphs = [
+    #     {
+    #         'data': [
+    #             Bar(
+    #                 x=category_names,
+    #                 y=category_counts
+    #             )
+    #         ],
 
-            'layout': {
-                'title': 'Distribution of Message Categories',
-                'yaxis': {
-                    'title': "Count"
-                },
-                'xaxis': {
-                    'title': "category"
-                }
-            }
-        }
-    ]
+    #         'layout': {
+    #             'title': 'Distribution of Message Categories',
+    #             'yaxis': {
+    #                 'title': "Count"
+    #             },
+    #             'xaxis': {
+    #                 'title': "category"
+    #             }
+    #         }
+    #     }
+    # ]
     
-    # encode plotly graphs in JSON
-    ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
-    graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
+    # # encode plotly graphs in JSON
+    # ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
+    # graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
     
-    # render web page with plotly graphs
-    return render_template('master.html', ids=ids, graphJSON=graphJSON)
+    # # render web page with plotly graphs
+    # return render_template('master.html', ids=ids, graphJSON=graphJSON)
+    return "Hello Heroku Flask 0101"
 
 
 # web page that handles user query and displays model results
